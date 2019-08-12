@@ -1,10 +1,10 @@
 
 def line(deli)
-  if deli.empty?
+  if deli.nil? || deli.empty?
     puts "The line is currently empty."
   else
-    new_deli = []
-    deli.each{|person| new_deli << "#{(deli.index(person).to_i + 1)}. #{person}"}
+    new_deli = Array.new
+    deli.each{|person| new_deli << "#{(deli.index(person) + 1)}. #{person}"}
     puts "The line is currently: #{new_deli.join(" ")}"
 =begin
     alternative:
@@ -22,7 +22,7 @@ def take_a_number(deli,name)
 end
 
 def now_serving(deli)
-  if deli.empty?
+  if deli.nil? || deli.empty?
     puts "There is nobody waiting to be served!"
   else
     puts "Currently serving #{deli.first}."
